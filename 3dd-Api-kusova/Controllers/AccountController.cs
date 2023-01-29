@@ -34,5 +34,46 @@ namespace _3dd_Api_kusova.Controllers
 
             return Ok(token);
         }
+
+
+        [HttpPost("GoogleExternalLogin")]
+        public async Task<IActionResult> GoogleExternalLoginAsync([FromBody] ExternalLoginRequest model)
+        {
+            var data = await _jwtTokenService.VerifyGoogle(model);
+
+            if(data == null) { return BadRequest("Google token is successfuly verified"); }
+            var info = new UserLoginInfo(model.Provider,data.Subject,model.Provider);
+
+            var user = await _userManager.FindByLoginAsync(info.LoginProvider,info.ProviderKey);
+
+            if(user == null)
+            {
+                user = await _userManager.FindByEmailAsync(data.Email);
+                if(user == null)
+                {
+                    user = new MyAppUser
+                    {
+                        Email = data.Email,
+                        UserName = data.Email,
+                        Surname = data.Name,
+                        Name = data.FamilyName
+                    };
+                    var resultCreate = await _userManager.CreateAsync(user);
+                    if(!resultCreate.Succeeded)
+                    {
+                        return BadRequest(new { error = "Не вдалось створити користувача" });
+                    }
+                }
+                var resultLogin = await _userManager.AddLoginAsync(user, info);
+                if(!resultLogin.Succeeded)
+                {
+                    return BadRequest(new { error = "Не вдалося увійти" });
+                }
+            }
+
+            var token = await _jwtTokenService.CreateToken(user);
+
+            return Ok(token);
+        }
     }
 }

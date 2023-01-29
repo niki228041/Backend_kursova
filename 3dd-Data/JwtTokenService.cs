@@ -1,4 +1,7 @@
 ﻿using _3dd_Data.Models;
+using _3dd_Data.Models.ViewModels;
+using _3dd_Data.Settings;
+using Google.Apis.Auth;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -15,17 +18,21 @@ namespace _3dd_Data
     public interface IJwtTokenService
     {
         Task<string> CreateToken(MyAppUser user);
+        Task<GoogleJsonWebSignature.Payload> VerifyGoogle(ExternalLoginRequest request);
     }
 
     public class JwtTokenService : IJwtTokenService
     {
         private readonly IConfiguration _configuration;
         private readonly UserManager<MyAppUser> _userManager;
+        private readonly GoogleAuthSettings _googleAuthSettings;
 
-        public JwtTokenService(IConfiguration configuration,UserManager<MyAppUser> userManager)
+        public JwtTokenService(IConfiguration configuration,UserManager<MyAppUser> userManager,
+            GoogleAuthSettings googleAuthSettings)
         {
             _configuration = configuration;
             _userManager = userManager;
+            _googleAuthSettings = googleAuthSettings;
         }
 
 
@@ -52,6 +59,19 @@ namespace _3dd_Data
                 );
 
             return new JwtSecurityTokenHandler().WriteToken(jwt);
+        }
+
+        public async Task<GoogleJsonWebSignature.Payload> VerifyGoogle(ExternalLoginRequest request)
+        {
+            var setting = new GoogleJsonWebSignature.ValidationSettings
+            {
+                Audience = new List<string>() { _googleAuthSettings.ClientId }
+            };
+
+            var asf = _googleAuthSettings.ClientId;
+
+            var payload = await GoogleJsonWebSignature.ValidateAsync(request.Token, setting);
+            return payload;
         }
     }
 }

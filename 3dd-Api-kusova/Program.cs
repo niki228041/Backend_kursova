@@ -2,11 +2,19 @@ using _3dd_Data;
 using _3dd_Data.Db;
 using _3dd_Data.DbSeeder;
 using _3dd_Data.Models;
+using _3dd_Data.Settings;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+var googleAuthSettings = builder.Configuration
+    .GetSection("GoogleAuthSettings")
+    .Get<GoogleAuthSettings>();
+
+builder.Services.AddSingleton(googleAuthSettings);
 
 builder.Services.AddControllers();
 
@@ -41,6 +49,20 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+var dir = Path.Combine(Directory.GetCurrentDirectory(), "images");
+if(!Directory.Exists(dir))
+{
+    Directory.CreateDirectory(dir);
+}
+
+
+app.UseStaticFiles(
+    new StaticFileOptions {
+    FileProvider = new PhysicalFileProvider(dir),
+    RequestPath = "/images"
+    });
+
 
 app.MapControllers();
 
