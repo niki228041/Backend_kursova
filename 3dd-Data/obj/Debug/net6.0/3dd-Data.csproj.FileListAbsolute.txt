@@ -1,0 +1,12 @@
+C:\Users\user\source\repos\3dd-Api-kusova\3dd-Data\bin\Debug\net6.0\3dd-Data.deps.json
+C:\Users\user\source\repos\3dd-Api-kusova\3dd-Data\bin\Debug\net6.0\3dd-Data.dll
+C:\Users\user\source\repos\3dd-Api-kusova\3dd-Data\bin\Debug\net6.0\3dd-Data.pdb
+C:\Users\user\source\repos\3dd-Api-kusova\3dd-Data\obj\Debug\net6.0\3dd-Data.csproj.AssemblyReference.cache
+C:\Users\user\source\repos\3dd-Api-kusova\3dd-Data\obj\Debug\net6.0\3dd-Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\source\repos\3dd-Api-kusova\3dd-Data\obj\Debug\net6.0\3dd-Data.AssemblyInfoInputs.cache
+C:\Users\user\source\repos\3dd-Api-kusova\3dd-Data\obj\Debug\net6.0\3dd-Data.AssemblyInfo.cs
+C:\Users\user\source\repos\3dd-Api-kusova\3dd-Data\obj\Debug\net6.0\3dd-Data.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\3dd-Api-kusova\3dd-Data\obj\Debug\net6.0\3dd-Data.dll
+C:\Users\user\source\repos\3dd-Api-kusova\3dd-Data\obj\Debug\net6.0\refint\3dd-Data.dll
+C:\Users\user\source\repos\3dd-Api-kusova\3dd-Data\obj\Debug\net6.0\3dd-Data.pdb
+C:\Users\user\source\repos\3dd-Api-kusova\3dd-Data\obj\Debug\net6.0\ref\3dd-Data.dll
