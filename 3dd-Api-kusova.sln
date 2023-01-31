@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32804.467
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3dd-Api-kusova", "3dd-Api-kusova\3dd-Api-kusova.csproj", "{DC1AC890-2387-4113-82AD-CC01CD5329CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiKusova", "3dd-Api-kusova\ApiKusova.csproj", "{DC1AC890-2387-4113-82AD-CC01CD5329CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3dd-Data", "3dd-Data\3dd-Data.csproj", "{D768BAD0-C0E6-475B-933A-2825F6477DF9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "3dd-Data\Data.csproj", "{D768BAD0-C0E6-475B-933A-2825F6477DF9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

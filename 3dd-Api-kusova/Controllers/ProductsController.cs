@@ -25,8 +25,14 @@ namespace _3dd_Api_kusova.Controllers
                 }
 
             }
+            string port = string.Empty;
+            if(Request.Host.Port!=null)
+            {
+                port = ":"+Request.Host.Port.ToString();
+            }
+            var url = $@"{Request.Scheme}://{Request.Host.Host}{port}/images/{fileName}";
 
-            return Ok("bro");
+            return Ok(url);
         }
     }
 }

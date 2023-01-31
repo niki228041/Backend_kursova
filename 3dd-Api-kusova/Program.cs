@@ -3,8 +3,10 @@ using _3dd_Data.Db;
 using _3dd_Data.DbSeeder;
 using _3dd_Data.Models;
 using _3dd_Data.Settings;
+using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.FileProviders;
+using Unit_Data.AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +26,8 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<DbContext3d>();
 
+builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
+
 builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
 
 builder.Services.AddIdentity<MyAppUser, MyAppRole>(opt =>
@@ -36,6 +40,7 @@ builder.Services.AddIdentity<MyAppUser, MyAppRole>(opt =>
 }).AddEntityFrameworkStores<DbContext3d>().AddDefaultTokenProviders();
 
 
+
 var app = builder.Build();
 
 
@@ -45,6 +50,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors(options => options
+    .WithOrigins("http://localhost:3000", "http://localhost:3001", "http://194.44.93.225", "http://10.7.101.243", "http://52.188.227.148", "http://40.76.116.183", "http://192.168.0.104")
+    .AllowAnyHeader()
+    .AllowCredentials()
+    .AllowAnyMethod()
+    );
 
 app.UseHttpsRedirection();
 

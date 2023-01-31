@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "Zl0sULgozZy6OdyJ/lvgF6KyyK0nFZgWvkSjIqf/w482xXcIsOIYoB73WUtGzvQuNiitkMAsXXqdt5pXB/0GbQ==",
+  "dgSpecHash": "AQ7ty5oV3WRHZae3dd4lGT+gUMh/NXbMQKYh4/gcWvpediokMETfEvIQKaoKYqX0kBToqeNzQJ3ZrGx/IiIjCw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\user\\source\\repos\\3dd-Api-kusova\\3dd-Api-kusova\\3dd-Api-kusova.csproj",
+  "projectFilePath": "C:\\Users\\user\\source\\repos\\3dd-Api-kusova\\3dd-Api-kusova\\ApiKusova.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\fluentvalidation\\11.4.0\\fluentvalidation.11.4.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\google.apis\\1.59.0\\google.apis.1.59.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\google.apis.auth\\1.59.0\\google.apis.auth.1.59.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\google.apis.core\\1.59.0\\google.apis.core.1.59.0.nupkg.sha512",

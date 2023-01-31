@@ -18,6 +18,32 @@
           }
         }
       },
+      "AutoMapper.Extensions.Microsoft.DependencyInjection/12.0.0": {
+        "type": "package",
+        "dependencies": {
+          "AutoMapper": "12.0.0",
+          "Microsoft.Extensions.Options": "6.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
+        }
+      },
+      "FluentValidation/11.4.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/FluentValidation.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Google.Apis/1.59.0": {
         "type": "package",
         "dependencies": {
@@ -1590,10 +1616,12 @@
           }
         }
       },
-      "3dd-Data/1.0.0": {
+      "Data/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "AutoMapper": "12.0.1",
+          "FluentValidation": "11.4.0",
           "Google.Apis.Auth": "1.59.0",
           "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.13",
@@ -1603,10 +1631,10 @@
           "Microsoft.Extensions.Configuration.Json": "6.0.0"
         },
         "compile": {
-          "bin/placeholder/3dd-Data.dll": {}
+          "bin/placeholder/Data.dll": {}
         },
         "runtime": {
-          "bin/placeholder/3dd-Data.dll": {}
+          "bin/placeholder/Data.dll": {}
         }
       }
     }
@@ -1625,6 +1653,43 @@
         "icon.png",
         "lib/netstandard2.1/AutoMapper.dll",
         "lib/netstandard2.1/AutoMapper.xml"
+      ]
+    },
+    "AutoMapper.Extensions.Microsoft.DependencyInjection/12.0.0": {
+      "sha512": "XCJ4E3oKrbRl1qY9Mr+7uyC0xZj1+bqQjmQRWTiTKiVuuXTny+7YFWHi20tPjwkMukLbicN6yGlDy5PZ4wyi1w==",
+      "type": "package",
+      "path": "automapper.extensions.microsoft.dependencyinjection/12.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
+        "automapper.extensions.microsoft.dependencyinjection.nuspec",
+        "icon.png",
+        "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll"
+      ]
+    },
+    "FluentValidation/11.4.0": {
+      "sha512": "WZJyrNf4suiaI6avVG32W9kmBLC3+V5rDTcLeRJjeU4tDmTyDIOz1459DzCKppXs34YpZg9rCUzDY3M4XxG7Ug==",
+      "type": "package",
+      "path": "fluentvalidation/11.4.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "fluent-validation-icon.png",
+        "fluentvalidation.11.4.0.nupkg.sha512",
+        "fluentvalidation.nuspec",
+        "lib/net5.0/FluentValidation.dll",
+        "lib/net5.0/FluentValidation.xml",
+        "lib/net6.0/FluentValidation.dll",
+        "lib/net6.0/FluentValidation.xml",
+        "lib/net7.0/FluentValidation.dll",
+        "lib/net7.0/FluentValidation.xml",
+        "lib/netstandard2.0/FluentValidation.dll",
+        "lib/netstandard2.0/FluentValidation.xml",
+        "lib/netstandard2.1/FluentValidation.dll",
+        "lib/netstandard2.1/FluentValidation.xml"
       ]
     },
     "Google.Apis/1.59.0": {
@@ -3738,16 +3803,17 @@
         "version.txt"
       ]
     },
-    "3dd-Data/1.0.0": {
+    "Data/1.0.0": {
       "type": "project",
-      "path": "../3dd-Data/3dd-Data.csproj",
-      "msbuildProject": "../3dd-Data/3dd-Data.csproj"
+      "path": "../3dd-Data/Data.csproj",
+      "msbuildProject": "../3dd-Data/Data.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "3dd-Data >= 1.0.0",
       "AutoMapper >= 12.0.1",
+      "AutoMapper.Extensions.Microsoft.DependencyInjection >= 12.0.0",
+      "Data >= 1.0.0",
       "Google.Apis.Auth >= 1.59.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 6.0.13",
       "Microsoft.AspNetCore.Identity >= 2.2.0",
@@ -3764,9 +3830,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\source\\repos\\3dd-Api-kusova\\3dd-Api-kusova\\3dd-Api-kusova.csproj",
-      "projectName": "3dd-Api-kusova",
-      "projectPath": "C:\\Users\\user\\source\\repos\\3dd-Api-kusova\\3dd-Api-kusova\\3dd-Api-kusova.csproj",
+      "projectUniqueName": "C:\\Users\\user\\source\\repos\\3dd-Api-kusova\\3dd-Api-kusova\\ApiKusova.csproj",
+      "projectName": "ApiKusova",
+      "projectPath": "C:\\Users\\user\\source\\repos\\3dd-Api-kusova\\3dd-Api-kusova\\ApiKusova.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\user\\source\\repos\\3dd-Api-kusova\\3dd-Api-kusova\\obj\\",
       "projectStyle": "PackageReference",
@@ -3785,8 +3851,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\user\\source\\repos\\3dd-Api-kusova\\3dd-Data\\3dd-Data.csproj": {
-              "projectPath": "C:\\Users\\user\\source\\repos\\3dd-Api-kusova\\3dd-Data\\3dd-Data.csproj"
+            "C:\\Users\\user\\source\\repos\\3dd-Api-kusova\\3dd-Data\\Data.csproj": {
+              "projectPath": "C:\\Users\\user\\source\\repos\\3dd-Api-kusova\\3dd-Data\\Data.csproj"
             }
           }
         }
@@ -3804,6 +3870,10 @@
           "AutoMapper": {
             "target": "Package",
             "version": "[12.0.1, )"
+          },
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+            "target": "Package",
+            "version": "[12.0.0, )"
           },
           "Google.Apis.Auth": {
             "target": "Package",
@@ -3859,7 +3929,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }
