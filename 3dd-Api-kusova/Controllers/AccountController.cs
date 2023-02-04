@@ -3,10 +3,8 @@ using _3dd_Data.Models;
 using _3dd_Data.Models.ViewModels;
 using AutoMapper;
 using Compass.Data.Validation;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json.Linq;
 
 namespace _3dd_Api_kusova.Controllers
 {
@@ -17,6 +15,7 @@ namespace _3dd_Api_kusova.Controllers
         private readonly UserManager<MyAppUser> _userManager;
         private readonly IJwtTokenService _jwtTokenService;
         private readonly IMapper _mapper;
+
 
 
         public AccountController(UserManager<MyAppUser> userManager,IJwtTokenService jwtTokenService,IMapper mapper)
@@ -36,14 +35,19 @@ namespace _3dd_Api_kusova.Controllers
             {
                 var user = await _userManager.FindByEmailAsync(model.Email);
 
-                if( user == null) {
+                if(user == null) {
 
                     MyAppUser new_user = _mapper.Map<MyAppUser>(model);
 
 
                     await _userManager.CreateAsync(new_user, model.Password);
                     await _userManager.AddToRoleAsync(new_user, model.Role);
-                    return Ok("Created User!");
+
+                    var user_for_token = await _userManager.FindByEmailAsync(new_user.Email);
+
+                    var token = await _jwtTokenService.CreateToken(user_for_token);
+
+                    return Ok(token);
                 }
                 return BadRequest(new {error = "Email is used by another user"});
             }
@@ -106,5 +110,15 @@ namespace _3dd_Api_kusova.Controllers
 
             return Ok(token);
         }
+
+
+        [HttpPost]
+        [Route("GetUserByEmail")]
+        public async Task<IActionResult> GetUserByEmail(EmailViewModel model)
+        {
+            var user = await _userManager.FindByEmailAsync(model.Email);
+            return Ok(user);
+        }
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using _3dd_Data.Models;
+using _3dd_Data.Models.Product_dir;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -25,6 +26,12 @@ namespace _3dd_Data.Db
             var connectionString = configuration.GetConnectionString("DefaultConnection");
             optionsBuilder.UseSqlServer(connectionString);
         }
+
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Company> Companys { get; set; }
+        public DbSet<ProductImage> ProductImages { get; set; }
+        public DbSet<ProductComment> ProductComments { get; set; }
+        
 
 
         protected override void OnModelCreating(ModelBuilder builder)

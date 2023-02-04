@@ -2,8 +2,8 @@ using _3dd_Data;
 using _3dd_Data.Db;
 using _3dd_Data.DbSeeder;
 using _3dd_Data.Models;
+using _3dd_Data.Repositories;
 using _3dd_Data.Settings;
-using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.FileProviders;
 using Unit_Data.AutoMapper;
@@ -29,6 +29,11 @@ builder.Services.AddDbContext<DbContext3d>();
 builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 
 builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
+builder.Services.AddScoped<IProductRepository,ProductRepository>();
+builder.Services.AddScoped<ICompanyRepository,CompanyRepository>(); 
+builder.Services.AddScoped<IProductCommentRepository, ProductCommentRepository>(); 
+
+//builder.Services.AddTransient<ProductRepository>();
 
 builder.Services.AddIdentity<MyAppUser, MyAppRole>(opt =>
 {

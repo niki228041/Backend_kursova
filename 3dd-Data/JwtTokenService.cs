@@ -42,7 +42,7 @@ namespace _3dd_Data
 
             List<Claim> claims = new List<Claim>()
             {
-                new Claim("name",user.UserName)
+                new Claim("name",user.Email)
             };
 
             foreach (var role in roles)

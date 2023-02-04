@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using _3dd_Data.Models.Product_dir;
+using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace _3dd_Data.Models
 {
@@ -13,5 +15,7 @@ namespace _3dd_Data.Models
         [StringLength(255)]
         public string Image { get; set; }
         public virtual ICollection<MyAppRoleUser> UserRoles { get; set; }
+        //public virtual ICollection<Product> Products { get; set; }
+        //public virtual ICollection<ProductComment> Messages { get; set; }
     }
 }

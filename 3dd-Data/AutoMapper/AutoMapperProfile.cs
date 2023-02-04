@@ -1,4 +1,5 @@
 ﻿using _3dd_Data.Models;
+using _3dd_Data.Models.Product_dir;
 using _3dd_Data.Models.ViewModels;
 using AutoMapper;
 using AutoMapper.Internal.Mappers;
@@ -16,6 +17,15 @@ namespace Unit_Data.AutoMapper
         {
             CreateMap<RegistrationViewModel, MyAppUser>();
             CreateMap<MyAppUser, RegistrationViewModel>();
+
+            CreateMap<CompanyViewModel,Company>();
+            CreateMap<Company,CompanyViewModel>();
+            
+            CreateMap<Product,ProductViewModel>();
+            CreateMap< ProductViewModel, Product>();
+
+            CreateMap<ProductComment, ProductMessageViewModel>();
+            CreateMap<ProductMessageViewModel, ProductComment>();
 
         }
     }
