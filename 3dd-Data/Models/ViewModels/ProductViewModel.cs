@@ -5,6 +5,7 @@ namespace _3dd_Data.Models.ViewModels
     {
         public string Name { get; set; }
         public string Size { get; set; }
+        public string Version { get; set; }
         public double Price { get; set; }
         public string Details { get; set; }
         public DateTime UploadDate { get; set; }
@@ -14,6 +15,6 @@ namespace _3dd_Data.Models.ViewModels
         public int UserId { get; set; }
         public int CompanyId { get; set; }
         public string Data { get; set; }
-        
+        public IList<ProductImageUploadViewModel> Images_ { get; set; }
     }
 }

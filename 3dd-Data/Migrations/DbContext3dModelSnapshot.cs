@@ -228,6 +228,9 @@ namespace _3dd_Data.Migrations
                     b.Property<int?>("UserId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Version")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CompanyId");
@@ -291,6 +294,9 @@ namespace _3dd_Data.Migrations
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
+
+                    b.Property<bool>("isFirstPhoto")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 

@@ -4,9 +4,12 @@ using _3dd_Data.DbSeeder;
 using _3dd_Data.Models;
 using _3dd_Data.Repositories;
 using _3dd_Data.Settings;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.FileProviders;
 using Unit_Data.AutoMapper;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,7 +34,9 @@ builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
 builder.Services.AddScoped<IProductRepository,ProductRepository>();
 builder.Services.AddScoped<ICompanyRepository,CompanyRepository>(); 
-builder.Services.AddScoped<IProductCommentRepository, ProductCommentRepository>(); 
+builder.Services.AddScoped<IProductCommentRepository, ProductCommentRepository>();
+builder.Services.AddScoped<IProductImageRepository, ProductImageRepository>();
+
 
 //builder.Services.AddTransient<ProductRepository>();
 

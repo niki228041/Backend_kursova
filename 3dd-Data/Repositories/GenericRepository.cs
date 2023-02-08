@@ -27,9 +27,11 @@ namespace _3dd_Data.Repositories
 
         public async Task Delete(int id)
         {
-            var entity = await GetById(id);
-            _dbContext.Set<TEntity>().Remove(entity);
-            await _dbContext.SaveChangesAsync();
+            using(var db_ = new DbContext3d()) { 
+                var entity = await GetById(id);
+                db_.Set<TEntity>().Remove(entity);
+                await db_.SaveChangesAsync();
+            }
         }
 
         public IQueryable<TEntity> GetAll()
@@ -39,9 +41,14 @@ namespace _3dd_Data.Repositories
 
         public async Task<TEntity> GetById(int id)
         {
-            return await _dbContext.Set<TEntity>()
+            using (var db_ = new DbContext3d())
+            {
+                return await db_.Set<TEntity>()
                 .AsNoTracking()
-                .FirstOrDefaultAsync(e=>e.Id == id);
+                .FirstOrDefaultAsync(e => e.Id == id);
+            }
+
+            
         } 
 
         public async Task Update(TEntity entity)

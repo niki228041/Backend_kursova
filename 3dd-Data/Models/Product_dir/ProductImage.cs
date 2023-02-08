@@ -12,5 +12,6 @@ namespace _3dd_Data.Models.Product_dir
 
         [ForeignKey(nameof(Product))]
         public int ProductId { get; set; }
+        public bool isFirstPhoto { get; set; }
     }
 }

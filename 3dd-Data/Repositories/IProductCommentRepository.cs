@@ -10,6 +10,6 @@ namespace _3dd_Data.Repositories
 {
     public interface IProductCommentRepository : IGenericRepository<ProductComment, int>
     {
-
+        public Task DeleteByProductId(int id);
     }
 }

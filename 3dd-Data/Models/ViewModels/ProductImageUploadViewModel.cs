@@ -5,7 +5,8 @@ namespace _3dd_Data.Models.ViewModels
 {
     public class ProductImageUploadViewModel
     {
-        public IFormFile Image { get; set; }
+        public string Data { get; set; }
+        public string Extension { get; set; }
 
     }
 }

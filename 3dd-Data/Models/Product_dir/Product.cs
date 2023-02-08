@@ -17,6 +17,7 @@ namespace _3dd_Data.Models.Product_dir
         public string Extension { get; set; }
         public string LicenseType { get; set; }
         public string AssetName { get; set; }
+        public string Version { get; set; }
 
         public virtual ICollection<ProductComment> ProductComments { get; set; }
 
